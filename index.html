@@ -5,8 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
 <meta name="format-detection" content="telephone=no" />
+
 <link href="css/style-v2.5.css" media="not print" rel="stylesheet" type="text/css" />
 <link href="css/style-v2.5-print.css" media="print" rel="stylesheet" type="text/css" />
+<script src="js/echarts.min.js"></script>
 </head>
 
 <body>
@@ -33,20 +35,102 @@ body.parentNode.style.overflow = body.style.overflow = 'hidden';
 					}
 				</script></li>
 				<li class="header__address__item header__address__item-qq"><script>
-					document.write( 'a1b0c7d9e1f8g4h1id2s4'.replace(/\D/g, '') );
+					document.write( 'TEL:'.replace() );
+					document.write( '17688858818'.replace() );
+
 				</script></li>
 				<li class="header__address__item header__address__item-email"><script>
-					document.write( ['com', '126', 'heeroluo'].reverse().join('.').replace('.', '@') );
+					document.write( '邮箱：'.replace() );
+					document.write( ['com', 'qq', '1079184124'].reverse().join('.').replace('.', '@') );
 				</script></li>
 				<li class="header__address__item header__address__item-blog">
-					<a class="button" href="http://heeroluo.net/" target="_blank">个人博客</a>
+					<a class="button" href="http://weibo.com/3294604462/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">新浪微博</a>
 				</li>
 			</ul>
 		</address>
-	</div>
+	</div>	
 </header>
 
+<div class="main">
+<div id="ask" style="width: 100%; height: 500px;"></div>
+</div>
+<script type="text/javascript">
+	var myChart = echarts.init(document.getElementById('ask'));
+	var option = {
+    backgroundColor: '#fff',
 
-<div style="display: none;"><script src="http://s15.cnzz.com/stat.php?id=4174689&amp;web_id=4174689"></script></div>
+    title: {
+    	
+        text: '精通前端，涉猎后端',
+        left: 'center',
+        top: 20,
+        textStyle: {
+            color: 'black'
+        }
+    },
+
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+
+    visualMap: {
+        show: false,
+        min: 80,
+        max: 600,
+        inRange: {
+            colorLightness: [0, 1]
+        }
+    },
+    series : [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '50%'],
+            data:[
+                {value:335, name:'框架（Vue 、 Angular）'},
+                {value:310, name:'App端开发'},
+                {value:274, name:'node.js'},
+                {value:235, name:'ps 、 3dmax 、CAD'},
+                {value:400, name:'Js 、 Html 、 Css'}
+            ].sort(function (a, b) { return a.value - b.value; }),
+            roseType: 'radius',
+            label: {
+                normal: {
+                    textStyle: {
+                        color: 'balck'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    lineStyle: {
+                        color: 'balck'
+                    },
+                    smooth: 0.2,
+                    length: 10,
+                    length2: 20
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#c23531',
+                    shadowBlur: 200,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            },
+
+            animationType: 'scale',
+            animationEasing: 'elasticOut',
+            animationDelay: function (idx) {
+                return Math.random() * 200;
+            }
+        }
+    ]
+};
+myChart.setOption(option);
+</script>
+
 </body>
 </html>
